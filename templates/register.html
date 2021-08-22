@@ -1,0 +1,124 @@
+{% load static %}
+{% include 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Saurav">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<title>Registration</title>
+<style>
+  label{
+    font-weight: 600;
+  }
+</style>
+</head>
+
+<body style="background-color: rgb(177, 217, 226);">
+ <div class="container">
+  <div style="text-align:center">
+    {% for msg in messages %}
+    &#10060;<span style="color: crimson; font-weight: 400;">{{msg}}</span>
+    {% endfor %}
+  </div>
+  <div class="py-5 text-center">
+    
+    <h2>{{word}} Owner's information</h2>
+  </div>
+ </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+     <form action="" method="POST">
+       {% csrf_token %}
+     <div class="form-group">
+    <label for="exampleInputEmail1">Full Name</label><hr>
+    <!--input type="text" class="form-control" id="firstName" placeholder="Jem" required-->
+    {{form.name}}
+    </div>
+     
+    <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label><hr>
+    <!--input type="email" class="form-control" id="exampleInputEmail1" placeholder="atik@email.com" aria-describedby="emailHelp"-->
+    {{form.email}}
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  
+  <div class="form-group">
+    <label for="exampleInputPassword1">Phone number</label><hr>
+    <!--input type="text" class="form-control" id="address" placeholder="0152xxxxxxx" required-->
+    {{form.phone}}
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Flat number</label><hr>
+    <!--input type="text" class="form-control" id="address" placeholder="A" required-->
+    {{form.flat}}
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Floor number</label><hr>
+    <!--input type="text" class="form-control" id="address" placeholder="9" required-->
+    {{form.floor}}
+  </div>
+    <hr>
+     <h4 class="mb-3">Permanent Address Information</h4>
+       <form>
+  
+     
+    <div class="form-group">
+    <label for="exampleInputEmail1">NID Number</label><hr>
+    <!--input type="email" class="form-control" id="exampleInputEmail1" placeholder="645 xxx xxx xxx" aria-describedby="emailHelp"-->
+    {{form.nid}}
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  
+  <div class="form-group">
+    <label for="exampleInputPassword1">Address </label><hr>
+    <!--input type="text" class="form-control" id="address" placeholder="5/1-A, Gendaria" required-->
+    {{form.address}}
+    <small class="form-text text-muted">Street Address</small>
+  </div>
+  <div class="row">
+          <div class="col-md-5 mb-3">
+            <label for="zip">District</label><br>
+            <!--input type="text" class="form-control" id="zip" placeholder="" required-->
+            {{form.district}}
+            <div class="invalid-feedback">
+              District required.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="zip">Thana</label><br>
+            <!--input type="text" class="form-control" id="zip" placeholder="" required-->
+            {{form.thana}}
+            <div class="invalid-feedback">
+              Thana required.
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="zip">Zip code</label><br>
+            <!--input type="text" class="form-control" id="zip" placeholder="" required-->
+            {{form.zipcode}}
+            <div class="invalid-feedback">
+              Zip code required.
+            </div>
+          </div>
+        </div>
+  <hr class="mb-4">
+
+  <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+  <a href="{% url 'home' %}" class="btn btn-success btn-lg btn-block">Cancel</a>
+  </form>
+    </div>
+  </div>
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2021 Phoenix Tower</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacy</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+  </footer>
+  </div>
+</body>
+</html>

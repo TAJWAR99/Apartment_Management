@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<link rel="stylesheet" href="{% static '/CSS/billstyle.css' %}" />
+
+<body style="background-color: rgb(177, 217, 226);">
+	{% if messages %}
+	{% for msg in messages %}
+	  <div style="background-color: rgb(33, 163, 33); text-align:center;">{{msg}}</div>
+	{% endfor %}
+	{% else %}
+	<br><br>
+	{% endif %}
+<section class="pricing-section">
+    <div class="container">
+		<div class="row justify-content-md-center">
+			<div class="col-xl-5 col-lg-6 col-md-8">
+				<div class="section-title text-center title-ex1">
+					<h2>Apartment Bills</h2>
+				</div>
+			</div>
+		</div>
+		<!-- Pricing Table starts -->
+			<form action="" method="POST">
+				{% csrf_token %}
+			<div class="row">
+				<div class="col-md-4">
+					<div class="price-card ">
+						<h2>Water</h2>
+						<hr>
+						<p class="price"><span>{{bill.water}}</span>/ Month</p>
+						{% if user.is_authenticated %}
+						<p>{{form.water}}</p>
+						<input type="submit" value="Enter">
+						{% endif %}
+						<ul class="pricing-offers">
+							<li>{{bill.created}}</li>
+						</ul>
+						<a href="{% url 'bill-info' 1 %}" class="btn btn-primary btn-mid">Check</a>
+					</div>
+				</div>
+			
+				<div class="col-md-4">
+					<div class="price-card featured">
+						<h2>Electricity</h2>
+						<hr>
+						<p class="price"><span>{{bill.current}}</span>/ Month</p>
+						{% if user.is_authenticated %}
+						<p>{{form.current}}</p>
+						<input type="submit" value="Enter">
+						{% endif %}
+						<ul class="pricing-offers">
+							<li>{{bill.created}}</li>
+						</ul>
+						<a href="{% url 'bill-info' 2 %}" class="btn btn-primary btn-mid">Check</a>
+					</div>
+				</div>
+			
+				<div class="col-md-4">
+					<div class="price-card ">
+						<h2>Gas</h2>
+						<hr>
+						<p class="price"><span>{{bill.gas}}</span>/ Month</p>
+						{% if user.is_authenticated %}
+						<p>{{form.gas}}</p>
+						<input type="submit" value="Enter">
+						{% endif %}
+						<ul class="pricing-offers">
+							<li>{{bill.created}}</li>
+						</ul>
+						<a href="{% url 'bill-info' 3 %}" class="btn btn-primary btn-mid">Check</a>
+					</div>
+				</div>	
+
+				<div class="col-md-4">
+					<div class="price-card featured">
+						<h2>Service Charge</h2>
+						<hr>
+						<p class="price"><span>{{bill.service_charge}}</span>/ Month</p>
+						{% if user.is_authenticated %}
+						<p>{{form.service_charge}}</p>
+						<input type="submit" value="Enter">
+						{% endif %}
+						<ul class="pricing-offers">
+							<li>{{bill.created}}</li>
+						</ul>
+						<a href="{% url 'bill-info' 4 %}" class="btn btn-primary btn-mid">Check</a>
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<div class="price-card">
+						<h2>Extra</h2>
+						<hr>
+						<p class="price"><span>{{bill.extra}}</span>/ Month</p>
+						{% if user.is_authenticated %}
+						<p>{{form.extra}}</p>
+						<input type="submit" value="Enter">
+						{% endif %}
+						<ul class="pricing-offers">
+							<li>{{bill.created}}</li>
+						</ul>
+						<a href="{% url 'bill-info' 5 %}" class="btn btn-primary btn-mid">Check</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+</body>
+{% endblock %}

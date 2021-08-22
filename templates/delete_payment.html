@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="vh-100" style="background-color: #eee; height:1000px; background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.jpg');">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-12 col-xl-11">
+          <div class="card text-black" style="border-radius: 25px;">
+            <div class="card-body p-md-5">
+              <div class="row justify-content-center">
+                <div class="col-md-10 ">
+  
+                    <form action="{% url 'delete_payment' payment.id%}" method="POST">
+                        {% csrf_token %}
+                        <h1>Are you sure you want to delete the account for <span style="color: rgb(147, 101, 158);">{{owner.name}}</span>?  :(</h1>
+                        <hr>
+                        <label>Admin username :</label>
+                        <input type="text" name="admin">
+                        <br>
+                        <label>Admin password :</label>
+                        <input type="password" name="password">
+                        <hr>
+                        {% for msg in messages %}
+                        <span style="color: red;">&#10060; {{msg}}</span>
+                        <br><br>
+                        {% endfor %}
+                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                            <input type="submit" class="btn btn-primary btn-danger" value="Confirm">
+                            <a href="{% url 'bills' %}" class="btn btn-primary btn-info" style="margin-left: 20px;">Cancel</a>
+                        </div>
+                    </form>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

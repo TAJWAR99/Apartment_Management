@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% include 'navbar.html' %}
+
+<style>
+    th{
+        color: cornsilk;
+    }
+</style>
+<body style="background-color: rgb(177, 217, 226);">
+  {% if messages %}
+  {% for msg in messages %}
+    <div style="background-color: rgb(33, 163, 33); text-align:center;">{{msg}}</div>
+  {% endfor %}
+  {% else %}
+  <br><br>
+  {% endif %}
+
+<section class="intro">
+    
+      <div class="mask d-flex align-items-center h-100">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body p-0">
+                  <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                    <div style="height: 50px; text-align:center;"><marquee><span style="font-size: 35px ;">Welcome to Phoenix Tower Management</span></marquee></div>
+                    <table class="table table-striped mb-0">
+                      <thead style="background-color: #002d72;">
+                        <tr>
+                          <th >View</th>
+                          <th >Name</th>
+                          <th >Email</th>
+                          <th >Phone</th>
+                          <th >Floor no.</th>
+                          <th >Flat no.</th>
+                          {% if user.is_authenticated %}
+                          <th >Update</th>
+                          <th >Remove</th>
+                          {% endif %}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for owner in owners %}
+                        <tr >
+                          
+                        <td><a href="{% url 'view' owner.id %}" class="btn btn-xs btn-success">View</a></td>
+                        <td>{{owner.name}}</td>
+                        <td>{{owner.email}}</td>
+                        <td>{{owner.phone}}</td>
+                        <td>{{owner.floor}}</td>
+                        <td>{{owner.flat}}</td>
+                        {% if user.is_authenticated %}
+                        <td><a href="{% url 'update' owner.id %}" class="btn btn-info">Update</a></td>
+                        <td><a href="{% url 'delete' owner.id %}" class="btn btn-danger">Delete</a></td>
+                        {% endif %}
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </section>
+</body>
+{% endblock %}

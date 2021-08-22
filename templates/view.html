@@ -1,0 +1,133 @@
+{% load static %}
+{% include 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Saurav">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<title>Registration</title>
+<style>
+  label{
+    font-weight: 600;
+    font-size:1.5em;
+  }
+  span{
+      color: rgb(0, 155, 0);
+      font-size: x-large;
+      
+      padding-left: 8px;
+  }
+</style>
+</head>
+
+<body style="background-color: rgb(177, 217, 226);">
+
+ <div class="container"> 
+  <div class="py-5 text-center">   
+    <h2>Owner's information</h2>
+  </div>
+ </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+     
+        <div class="form-group">
+            <label>Full Name:</label><span>{{owner.name}}</span>
+            <hr>
+        </div>
+    
+        <div class="form-group">
+            <label>Phone number:</label><span>{{owner.phone}}</span>
+            <hr>
+        </div>
+
+        <div class="form-group">
+            <label>Flat number:</label><span>{{owner.flat}}</span>
+            <hr>
+        </div>
+
+        <div class="form-group">
+            <label>Floor number:</label><span>{{owner.floor}}</span>
+            <hr>
+        </div>
+
+        <div class="form-group">
+            <label>Email address:</label><span>{{owner.email}}</span>
+            <hr>
+        </div>
+
+        <div class="form-group">
+            <label>Address:</label><span>{{owner.address}}</span>
+            <hr>
+        </div>
+    
+        <div class="form-group">
+            <label>NID:</label><span>{{owner.nid}}</span>
+            <hr>
+        </div>
+
+        <div class="form-group">
+            <label>District:</label><span>{{owner.district}}</span>
+            <hr>
+        </div>
+
+        <div class="form-group">
+            <label>Thana:</label><span>{{owner.thana}}</span>
+            <hr>
+        </div>
+
+        <div class="form-group">
+            <label>ZIP Code:</label><span>{{owner.zipcode}}</span>
+            <hr>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="container"> 
+    <div class="py-5 text-center">   
+      <h2>Payment information</h2>
+    </div>
+   </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+       
+          <div class="form-group">
+              <label>Electricity Bill:</label><span>{{payment.current_bill}}</span>
+              <hr>
+          </div>
+      
+          <div class="form-group">
+              <label>Water Bill:</label><span>{{payment.water_bill}}</span>
+              <hr>
+          </div>
+  
+          <div class="form-group">
+              <label>Gas Bill:</label><span>{{payment.gas_bill}}</span>
+              <hr>
+          </div>
+  
+          <div class="form-group">
+              <label>Service Charge:</label><span>{{payment.servicecharge}}</span>
+              <hr>
+          </div>
+  
+          <div class="form-group">
+              <label>Extra:</label><span>{{payment.extracharge}}</span>
+              <hr>
+          </div>
+  
+          <div class="form-group">
+              <label>Note:</label><span>{{payment.note}}</span>
+              <hr>
+          </div>
+    
+      </div>
+    </div>
+  </div>
+</body>
+</html>

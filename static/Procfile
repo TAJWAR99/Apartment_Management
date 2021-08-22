@@ -1,0 +1,1 @@
+web: gunicorn apartmentManagement.wsgi --log-file -

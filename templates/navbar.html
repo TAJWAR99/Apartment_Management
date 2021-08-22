@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+</head>
+<body>
+
+    <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">
+              Owners
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'bills' %}">
+              Bills
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'payment' %}">
+              Payments
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}">
+              <i class="fa fa-home"></i>
+              Register
+              </a>
+          </li>
+        </ul>
+        <div class="form my-2 my-lg-0">
+          <form method="GET">
+          {% if filter %}
+          {% for field in filter.form %}
+            <span style="color: rgb(30, 155, 36);font-weight:600;padding-right:2px">{{field.label}}:</span>{{field}}
+          {% endfor %}
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          {% endif %}
+          {% if user.is_authenticated %}
+          <a href="{% url 'logOut' %}" class="btn btn-primary" style="margin-left: 3px;">Logout</a>
+          {% else %}
+          <a href="{% url 'login' %}" class="btn btn-primary" style="margin-left: 3px;">Login</a>
+          {% endif %}
+          </form>
+          
+        </div>
+      </div>
+    </nav>
+    
+</body>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</html>

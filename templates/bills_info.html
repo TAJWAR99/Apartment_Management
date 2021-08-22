@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+from jinjasql import JinjaSql
+{% block content %}
+{% include 'navbar.html' %}
+<br><br>
+<style>
+body{
+    background-color: rgb(177, 217, 226);
+}
+#bill{
+    background-color: #30b46c;
+}
+#total-amount{
+    background-color: #3996a8;
+}
+#total-due{
+    background-color: #ad3916;
+}
+#per-person{
+    background-color: #aeb63a;
+}
+</style>
+<div class="container-fluid">
+<div class="row">
+	<div class="col-md-5" >
+		
+			<div class="col" style="display: flex;height: 200px;"> 
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<div class="card text-center text-white  mb-3" id="bill">
+						<div class="card-header">
+							<h5 class="card-title">Bill</h5>
+						</div>
+						<div class="card-body">
+							<h3 class="card-title">{{bills.0}}</h3>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+		
+			<div class="col" style="display: flex;height: 200px;"> 
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<div class="card text-center text-white  mb-3" id="total-amount">
+						<div class="card-header">
+							<h5 class="card-title">Total Amount</h5>
+						</div>
+						<div class="card-body">
+							<h3 class="card-title">{{bills.1}}</h3>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+			
+			<div class="col" style="display: flex;height: 200px;"> 
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<div class="card text-center text-white  mb-3" id="per-person">
+						<div class="card-header">
+							<h5 class="card-title">Per Person</h5>
+						</div>
+						<div class="card-body">
+							<h3 class="card-title">{{bills.2}}</h3>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+
+			<div class="col" style="display: flex;height: 200px;"> 
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<div class="card text-center text-white  mb-3" id="total-due">
+						<div class="card-header">
+							<h5 class="card-title">Total Due</h5>
+						</div>
+						<div class="card-body">
+							<h3 class="card-title">{{bills.4}}</h3>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+		
+	</div>
+
+	<div class="col-md-5">
+		<h5 style="text-align: center;">Payment List</h5>
+		<hr>
+		<div class="card card-body">
+			
+			<table class="table table-sm">
+				<tr>
+					<th>Name</th>
+					<th>Flat</th>
+					<th>Floor</th>
+					<th>Paid</th>
+					{% if user.is_authenticated %}
+					<th>Update</th>
+					<th>Delete</th>
+					{% endif %}
+				</tr>
+				
+					{% for j in bills.3 %}
+					<tr>
+						{% for i in j.values %}
+							<td>{{i}}</td>
+						{% endfor %}
+						{% if user.is_authenticated %}
+						<td><a href="{% url 'update_payment' j.name %}" class="btn btn-info btn-sm">Update</a></td>
+						<td><a href="{% url 'delete_payment' j.name %}" class="btn btn-danger btn-sm">Delete</a></td>
+						{% endif %}
+					</tr>
+					{% endfor %}
+			</table>
+			
+		</div>
+	</div>
+	
+	<div class="col-md-2">
+		<h5 style="text-align: center;">Due Amount</h5>
+		<hr>
+		<div class="card card-body">
+			
+			<table class="table table-sm">
+				<tr>
+					<th style="text-align: center;">Due</th>
+				</tr>
+				
+					{% for j in bills.5 %}
+					<tr>
+						<td style="font-size: large; color:crimson; font-weight:bold; text-align:center">{{j}}</td>
+					</tr>
+					{% endfor %}
+			</table>
+			
+		</div>
+	</div>
+	
+
+</div>
+</div>
+{% endblock %}
