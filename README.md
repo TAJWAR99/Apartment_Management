@@ -4,13 +4,13 @@ This project is built with Djnago framework where you can add,update,delete or v
 <img src="apartment_pic/pic1.PNG">
 <p>Bills page</p>
 <img src="apartment_pic/pic2.PNG">
-<p>Home page</p>
+<p>View page</p>
 <img src="apartment_pic/pic3.PNG">
-<p>Home page</p>
+<p>Login page</p>
 <img src="apartment_pic/pic4.PNG">
-<p>Home page</p>
+<p>Home page with login</p>
 <img src="apartment_pic/pic5.PNG">
-<p>Home page</p>
+<p>Payment info</p>
 <img src="apartment_pic/pic6.PNG">
 <p>Home page</p>
 <img src="apartment_pic/pic7.PNG">
