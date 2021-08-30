@@ -12,9 +12,9 @@ This project is built with Djnago framework where you can add,update,delete or v
 <img src="apartment_pic/pic5.PNG">
 <p>Payment info</p>
 <img src="apartment_pic/pic6.PNG">
-<p>Home page</p>
+<p>Registration page</p>
 <img src="apartment_pic/pic7.PNG">
-<p>Home page</p>
+<p>Make payment page</p>
 <img src="apartment_pic/pic8.PNG">
 <p>Delete page</p>
 <img src="apartment_pic/pic9.PNG">
